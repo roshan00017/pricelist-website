@@ -1,0 +1,86 @@
+.header {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  color: white;
+  padding: 24px 40px;
+
+  min-height: 88px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 48px;
+  /* Move profile more to the right */
+}
+
+.avatar-icon {
+  color: #ff6b35;
+  background-color: white;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.company {
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+.language-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  margin-right: 6vw;
+}
+
+.flag {
+  width: 28px;
+  height: 18px;
+  border-radius: 2px;
+}
+
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .user-info {
+    display: none;
+  }
+  .hamburger-menu {
+    display: block;
+  }
+  .header {
+    padding: 16px 18px;
+    min-height: 64px;
+  }
+  .language-selector {
+    margin-right: 8vw;
+  }
+}

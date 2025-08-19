@@ -1,0 +1,11 @@
+.main-container {
+  display: flex;
+  min-height: calc(100vh - 64px);
+}
+
+/* Tablet and Mobile */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
+}

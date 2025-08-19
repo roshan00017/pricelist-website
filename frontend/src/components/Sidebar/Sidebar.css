@@ -1,0 +1,93 @@
+.sidebar {
+  width: 200px;
+  background: white;
+  border-right: 1px solid #e1e5e9;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.menu-header {
+  padding: 16px 20px;
+  font-weight: 600;
+  color: #666;
+  border-bottom: 2px solid #4a90e2;
+  font-size: 16px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #666;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.menu-item:hover {
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.menu-item.active {
+  background-color: #fff3cd;
+  color: #856404;
+  border-left-color: #ffc107;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.icon-invoices {
+  background-color: #17a2b8;
+}
+.icon-customers {
+  background-color: #28a745;
+}
+.icon-business {
+  background-color: #6c757d;
+}
+.icon-journal {
+  background-color: #17a2b8;
+}
+.icon-pricelist {
+  background-color: #ffc107;
+}
+.icon-multiple {
+  background-color: #17a2b8;
+}
+.icon-unpaid {
+  background-color: #e83e8c;
+}
+.icon-offer {
+  background-color: #ffc107;
+}
+.icon-inventory {
+  background-color: #6c757d;
+}
+.icon-member {
+  background-color: #007bff;
+}
+.icon-import {
+  background-color: #6f42c1;
+}
+.icon-logout {
+  background-color: #17a2b8;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}
