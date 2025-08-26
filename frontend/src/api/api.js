@@ -3,7 +3,7 @@ console.log("url", API_BASE_URL);
 
 export const fetchPricelist = async () => {
   try {
-    const response = await fetch(API_BASE_URL);
+    const response = await fetch(`${API_BASE_URL}/pricelist`);
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
@@ -11,5 +11,23 @@ export const fetchPricelist = async () => {
   } catch (error) {
     console.error("Failed to fetch pricelist:", error);
     return [];
+  }
+};
+export const editPricelistItem = async (itemId, updatedData) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/pricelist/${itemId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedData),
+    });
+    if (!response.ok) {
+      throw new Error("Failed to update pricelist item");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error(`Failed to edit item ${itemId}:`, error);
+    throw error;
   }
 };

@@ -2,7 +2,6 @@
   background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
   color: white;
   padding: 24px 40px;
-
   min-height: 88px;
   display: flex;
   justify-content: space-between;
@@ -11,6 +10,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: padding 0.3s ease, min-height 0.3s ease;
 }
 
 .header-left {
@@ -19,12 +19,17 @@
   gap: 12px;
 }
 
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+  color: white;
+  font-size: 24px;
+}
+
 .user-info {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-left: 48px;
-  /* Move profile more to the right */
 }
 
 .avatar-icon {
@@ -49,12 +54,16 @@
   opacity: 0.9;
 }
 
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
 .language-selector {
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 15px;
-  margin-right: 6vw;
 }
 
 .flag {
@@ -63,24 +72,78 @@
   border-radius: 2px;
 }
 
-.hamburger-menu {
-  display: none;
-  cursor: pointer;
-  color: white;
-}
-
-@media (max-width: 768px) {
+/* Mobile (Portrait) */
+@media (max-width: 768px) and (orientation: portrait) {
+  .header {
+    padding: 12px 16px;
+    min-height: 60px;
+  }
   .user-info {
     display: none;
   }
   .hamburger-menu {
     display: block;
   }
+  .language-selector {
+    font-size: 14px;
+  }
+  .flag {
+    width: 24px;
+    height: 16px;
+  }
+}
+
+/* Mobile (Landscape) */
+@media (max-width: 768px) and (orientation: landscape) {
   .header {
-    padding: 16px 18px;
-    min-height: 64px;
+    padding: 12px 16px;
+    min-height: 56px;
+  }
+  .user-info {
+    display: none;
+  }
+  .hamburger-menu {
+    display: block;
   }
   .language-selector {
-    margin-right: 8vw;
+    font-size: 13px;
+  }
+  .flag {
+    width: 22px;
+    height: 14px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header {
+    padding: 16px 24px;
+    min-height: 72px;
+  }
+  .user-info {
+    display: none;
+  }
+  .hamburger-menu {
+    display: block;
+  }
+  .language-selector {
+    font-size: 14px;
+  }
+  .flag {
+    width: 24px;
+    height: 16px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .hamburger-menu {
+    display: none;
+  }
+  .user-info {
+    margin-left: 48px;
+  }
+  .language-selector {
+    margin-right: 6vw;
   }
 }

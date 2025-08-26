@@ -1,73 +1,62 @@
 import {
-  FaFileInvoiceDollar,
+  FaFileAlt,
   FaUsers,
-  FaBuilding,
+  FaCogs,
   FaBook,
-  FaTags,
-  FaLayerGroup,
-  FaMoneyBillWave,
-  FaClipboardList,
-  FaBoxes,
+  FaTag,
+  FaCopy,
+  FaExclamationCircle,
+  FaHandPaper,
+  FaBox,
   FaUserFriends,
-  FaFileImport,
+  FaCloud,
   FaSignOutAlt,
 } from "react-icons/fa";
 import "./Sidebar.css";
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, onToggle }) => {
   return (
-    <aside className="sidebar">
-      <div className="menu-header">Menu</div>
-      <nav className="menu">
-        <a href="#" className="menu-item">
-          <FaFileInvoiceDollar className="icon" />
-          Invoices
-        </a>
-        <a href="#" className="menu-item">
-          <FaUsers className="icon" />
-          Customers
-        </a>
-        <a href="#" className="menu-item">
-          <FaBuilding className="icon" />
-          My Business
-        </a>
-        <a href="#" className="menu-item">
-          <FaBook className="icon" />
-          Invoice Journal
-        </a>
-        <a href="#" className="menu-item active">
-          <FaTags className="icon" />
-          Price List
-        </a>
-        <a href="#" className="menu-item">
-          <FaLayerGroup className="icon" />
-          Multiple Invoicing
-        </a>
-        <a href="#" className="menu-item">
-          <FaMoneyBillWave className="icon" />
+    <aside className={`sidebar ${isOpen ? "open" : ""}`}>
+      <div className="sidebar-header">Menu</div>
+      <ul className="sidebar-menu">
+        <li onClick={onToggle}>
+          <FaFileAlt className="icon" /> Invoices
+        </li>
+        <li onClick={onToggle}>
+          <FaUsers className="icon" /> Customers
+        </li>
+        <li onClick={onToggle}>
+          <FaCogs className="icon" /> My Business
+        </li>
+        <li onClick={onToggle}>
+          <FaBook className="icon" /> Invoice Journal
+        </li>
+        <li onClick={onToggle}>
+          <FaTag className="icon" style={{ color: "#28a745" }} /> Price List
+        </li>
+        <li onClick={onToggle}>
+          <FaCopy className="icon" /> Multiple Invoicing
+        </li>
+        <li onClick={onToggle}>
+          <FaExclamationCircle className="icon" style={{ color: "#dc3545" }} />{" "}
           Unpaid Invoices
-        </a>
-        <a href="#" className="menu-item">
-          <FaClipboardList className="icon" />
-          Offer
-        </a>
-        <a href="#" className="menu-item">
-          <FaBoxes className="icon" />
-          Inventory Control
-        </a>
-        <a href="#" className="menu-item">
-          <FaUserFriends className="icon" />
-          Member Invoicing
-        </a>
-        <a href="#" className="menu-item">
-          <FaFileImport className="icon" />
-          Import/Export
-        </a>
-        <a href="#" className="menu-item">
-          <FaSignOutAlt className="icon" />
-          Log out
-        </a>
-      </nav>
+        </li>
+        <li onClick={onToggle}>
+          <FaHandPaper className="icon" /> Offer
+        </li>
+        <li onClick={onToggle}>
+          <FaBox className="icon" /> Inventory Control
+        </li>
+        <li onClick={onToggle}>
+          <FaUserFriends className="icon" /> Member Invoicing
+        </li>
+        <li onClick={onToggle}>
+          <FaCloud className="icon" /> Import/Export
+        </li>
+        <li onClick={onToggle}>
+          <FaSignOutAlt className="icon" style={{ color: "#28a745" }} /> Log out
+        </li>
+      </ul>
     </aside>
   );
 };
