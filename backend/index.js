@@ -9,12 +9,22 @@ const allowedOrigins = process.env.CORS_ORIGINS
   : ["http://localhost:5173"]; // default for local dev
 
 fastify.register(cors, {
+  // Dynamically allow only configured origins
   origin: (origin, cb) => {
-    // Allow requests with no origin (Postman, server-side)
-    if (!origin) return cb(null, true);
-    if (allowedOrigins.includes(origin)) return cb(null, true);
+    if (!origin) {
+      // Allow server-to-server or curl/no-origin requests
+      return cb(null, true);
+    }
+    if (allowedOrigins.includes(origin)) {
+      return cb(null, true);
+    }
     cb(new Error("Not allowed by CORS"), false);
   },
+  methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true, // if you want cookies, change as needed
+  preflightContinue: false,
+  optionsSuccessStatus: 204, // Ensure success on preflight
 });
 
 // Register routes
