@@ -2,7 +2,6 @@
   flex: 1;
   padding-left: 84px;
   padding-top: 24px;
-
   transition: padding-left 0.3s ease;
   position: relative;
   z-index: 750;
@@ -129,13 +128,21 @@
 .table-container {
   background: white;
   border-radius: 8px;
-  overflow: auto;
-  width: 100%; /* Ensure table container respects padding */
+  overflow-x: auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  max-height: 800px; /* Increased to make container taller */
+  box-sizing: border-box;
+  display: block;
+  margin: 0;
 }
 
 .data-table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 800px; /* Ensures horizontal scrolling */
+  margin: 0;
 }
 
 .data-table th,
@@ -153,7 +160,7 @@
   position: sticky;
   top: 0;
   z-index: 1;
-  background-color: transparent;
+  background-color: white;
 }
 
 .data-table tbody tr:hover {
@@ -243,6 +250,17 @@
   .data-table td {
     padding: 8px 12px;
   }
+  .table-container {
+    max-height: 600px; /* Increased to make container taller */
+    overflow-x: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0;
+  }
+  .data-table {
+    min-width: 500px;
+    margin: 0;
+  }
 }
 
 /* Mobile (Landscape) */
@@ -285,6 +303,17 @@
   .data-table td {
     padding: 6px 10px;
   }
+  .table-container {
+    max-height: 500px; /* Increased to make container taller */
+    overflow-x: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0;
+  }
+  .data-table {
+    min-width: 500px;
+    margin: 0;
+  }
 }
 
 /* Tablet */
@@ -293,7 +322,7 @@
     padding: 16px;
   }
   .content.with-sidebar {
-    padding-left: 270px; /
+    padding-left: 270px;
   }
   .search-section {
     flex-direction: row;
@@ -308,6 +337,17 @@
   .col-tablet {
     display: table-cell;
   }
+  .table-container {
+    max-height: 650px; /* Increased to make container taller */
+    overflow-x: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0;
+  }
+  .data-table {
+    min-width: 700px;
+    margin: 0;
+  }
 }
 
 /* Desktop */
@@ -315,10 +355,20 @@
   .content {
     padding-left: 350px;
   }
-
   .btn svg {
     font-size: 1.5em;
     width: 24px;
     height: 24px;
+  }
+  .table-container {
+    max-height: 800px; /* Increased to make container taller */
+    overflow-x: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0;
+  }
+  .data-table {
+    min-width: 800px;
+    margin: 0;
   }
 }
