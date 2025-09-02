@@ -121,7 +121,7 @@ const Pricelist = ({ isSidebarOpen }) => {
           <table className="pl-table">
             <thead>
               <tr>
-                <th>
+                <th className="pl-col-articleno">
                   <div className="pl-th-content first">
                     Article No.
                     <span className="pl-th-arrow pl-th-arrow--blue">
@@ -129,7 +129,7 @@ const Pricelist = ({ isSidebarOpen }) => {
                     </span>
                   </div>
                 </th>
-                <th>
+                <th className="pl-col-productservice">
                   <div className="pl-th-content">
                     Product/Service
                     <span className="pl-th-arrow pl-th-arrow--green">
@@ -137,33 +137,34 @@ const Pricelist = ({ isSidebarOpen }) => {
                     </span>
                   </div>
                 </th>
-                <th>In Price</th>
-                <th>Price</th>
-                <th>Unit</th>
-                <th>In Stock</th>
-                <th>Description</th>
-                <th></th>
+                <th className="pl-col-inprice">In Price</th>
+                <th className="pl-col-price">Price</th>
+                <th className="pl-col-unit">Unit</th>
+                <th className="pl-col-instock">In Stock</th>
+                <th className="pl-col-description">Description</th>
+                <th className="pl-col-action"></th>
               </tr>
             </thead>
             <tbody>
               {items.map((item) => (
                 <tr className="pl-table-row" key={item.id}>
-                  <td onClick={() => !editItemId && handleEdit(item.id)}>
-                    <div className="pl-cell-flex">
-                      <span className="pl-arrow-cell pl-arrow-cell--blue">
-                        <GoArrowRight />
-                      </span>
-                      {editItemId === item.id ? (
-                        <input
-                          type="text"
-                          value={editedValues.id || ""}
-                          onChange={(e) => handleChange(e, "id")}
-                          className="pl-edit-input"
-                        />
-                      ) : (
-                        <span className="pl-pill">{item.id}</span>
-                      )}
-                    </div>
+                  <td
+                    className="pl-col-articleno"
+                    onClick={() => !editItemId && handleEdit(item.id)}
+                  >
+                    {/* <span className="pl-arrow-cell pl-arrow-cell--blue">
+                      <GoArrowRight />
+                    </span> */}
+                    {editItemId === item.id ? (
+                      <input
+                        type="text"
+                        value={editedValues.id || ""}
+                        onChange={(e) => handleChange(e, "id")}
+                        className="pl-edit-input"
+                      />
+                    ) : (
+                      <span className="pl-pill">{item.id}</span>
+                    )}
                   </td>
                   <td onClick={() => !editItemId && handleEdit(item.id)}>
                     {editItemId === item.id ? (
@@ -177,7 +178,10 @@ const Pricelist = ({ isSidebarOpen }) => {
                       <span className="pl-pill">{item.product_service}</span>
                     )}
                   </td>
-                  <td onClick={() => !editItemId && handleEdit(item.id)}>
+                  <td
+                    className="pl-col-inprice"
+                    onClick={() => !editItemId && handleEdit(item.id)}
+                  >
                     {editItemId === item.id ? (
                       <input
                         type="text"
@@ -201,7 +205,10 @@ const Pricelist = ({ isSidebarOpen }) => {
                       <span className="pl-pill">{item.price}</span>
                     )}
                   </td>
-                  <td onClick={() => !editItemId && handleEdit(item.id)}>
+                  <td
+                    className="pl-col-unit"
+                    onClick={() => !editItemId && handleEdit(item.id)}
+                  >
                     {editItemId === item.id ? (
                       <input
                         type="text"
@@ -213,7 +220,10 @@ const Pricelist = ({ isSidebarOpen }) => {
                       <span className="pl-pill">{item.unit || "-"}</span>
                     )}
                   </td>
-                  <td onClick={() => !editItemId && handleEdit(item.id)}>
+                  <td
+                    className="pl-col-instock"
+                    onClick={() => !editItemId && handleEdit(item.id)}
+                  >
                     {editItemId === item.id ? (
                       <input
                         type="text"
@@ -225,7 +235,10 @@ const Pricelist = ({ isSidebarOpen }) => {
                       <span className="pl-pill">{item.in_stock || "-"}</span>
                     )}
                   </td>
-                  <td onClick={() => !editItemId && handleEdit(item.id)}>
+                  <td
+                    className="pl-col-description"
+                    onClick={() => !editItemId && handleEdit(item.id)}
+                  >
                     {editItemId === item.id ? (
                       <input
                         type="text"

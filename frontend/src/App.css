@@ -20,9 +20,3 @@ body {
   display: flex;
   flex: 1;
 }
-
-@media (max-width: 768px) {
-  .main-layout {
-    flex-direction: column;
-  }
-}
