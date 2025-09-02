@@ -1,17 +1,28 @@
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f7f7f7;
+}
+
 .app {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  overflow: hidden;
 }
 
-.main-content {
+.main-layout {
   display: flex;
   flex: 1;
-  overflow: hidden;
-  position: relative;
 }
 
-.main-content > * {
-  flex-shrink: 0;
+@media (max-width: 768px) {
+  .main-layout {
+    flex-direction: column;
+  }
 }

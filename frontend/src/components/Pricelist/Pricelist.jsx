@@ -60,226 +60,208 @@ const Pricelist = ({ isSidebarOpen }) => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="pl-pricelist-loading">Loading...</div>;
   }
 
   return (
-    <main className={`content ${isSidebarOpen ? "with-sidebar" : ""}`}>
-      <div className="content-header justify-between">
-        <div className="search-section vertical-search">
-          <div className="search-group">
-            <input
-              type="text"
-              placeholder="Search Article No..."
-              className="search-input"
-            />
+    <main className={`pl-main${isSidebarOpen ? " pl-main--sidebar" : ""}`}>
+      <div className="pl-container">
+        {/* HEADER: Search section and actions */}
+        <header className="pl-header">
+          <div className="pl-search-section">
+            <div className="pl-search-group">
+              <input
+                type="text"
+                placeholder="Search Article No..."
+                className="pl-search-input"
+              />
+              <button
+                className="pl-search-btn"
+                aria-label="Search by article number"
+              >
+                <FiSearch className="pl-search-icon pl-search-icon--primary" />
+              </button>
+            </div>
+            <div className="pl-search-group">
+              <input
+                type="text"
+                placeholder="Search Product..."
+                className="pl-search-input"
+              />
+              <button
+                className="pl-search-btn"
+                aria-label="Search by product name"
+              >
+                <FiSearch className="pl-search-icon pl-search-icon--primary" />
+              </button>
+            </div>
+          </div>
+          <div className="pl-action-buttons">
             <button
-              className="search-btn rounded-search"
-              aria-label="Search by article number"
+              className="pl-action-btn pl-action-btn--new"
+              aria-label="Add new product"
             >
-              <FiSearch className="search-btn-icon blue-icon" />
+              <FiPlus className="pl-action-btn-icon pl-action-btn-icon--green" />
+              <span className="pl-action-btn-text">New Product</span>
+            </button>
+            <button className="pl-action-btn" aria-label="Print pricelist">
+              <FiPrinter className="pl-action-btn-icon pl-action-btn-icon--blue" />
+              <span className="pl-action-btn-text">Print List</span>
+            </button>
+            <button className="pl-action-btn" aria-label="Advanced mode">
+              <FiMoreVertical className="pl-action-btn-icon" />
+              <span className="pl-action-btn-text">Advanced mode</span>
             </button>
           </div>
-          <div className="search-group">
-            <input
-              type="text"
-              placeholder="Search Product..."
-              className="search-input"
-            />
-            <button
-              className="search-btn rounded-search"
-              aria-label="Search by product name"
-            >
-              <FiSearch className="search-btn-icon blue-icon" />
-            </button>
-          </div>
-        </div>
-        <div className="action-buttons pill-actions">
-          <button className="btn btn-new pill-btn" aria-label="Add new product">
-            <FiPlus className="btn-icon" />
-            <span className="btn-text">New Product</span>
-          </button>
-          <button
-            className="btn btn-print pill-btn"
-            aria-label="Print pricelist"
-          >
-            <FiPrinter className="btn-icon" />
-            <span className="btn-text">Print List</span>
-          </button>
-          <button
-            className="btn btn-advanced pill-btn"
-            aria-label="Advanced mode"
-          >
-            <FiMoreVertical className="btn-icon" />
-            <span className="btn-text">Advanced mode</span>
-          </button>
-        </div>
-      </div>
-      <div className="table-container">
-        <table className="data-table custom-pill-table">
-          <thead>
-            <tr>
-              <th className="col-desktop col-tablet">Article No.</th>
-              <th className="col-desktop col-tablet col-mobile">
-                Product/Service
-              </th>
-              <th className="col-desktop col-tablet">In Price</th>
-              <th className="col-desktop col-tablet col-mobile">Price</th>
-              <th className="col-desktop col-tablet">Unit</th>
-              <th className="col-desktop">In Stock</th>
-              <th className="col-desktop">Description</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {items.map((item) => (
-              <tr key={item.id}>
-                <td
-                  className="col-desktop col-tablet"
-                  onClick={() => !editItemId && handleEdit(item.id)}
-                >
-                  {editItemId === item.id ? (
-                    <input
-                      type="text"
-                      value={editedValues.id || ""}
-                      onChange={(e) => handleChange(e, "id")}
-                      className="edit-input"
-                    />
-                  ) : (
-                    <span
-                      className={`pill-bio ${
-                        editItemId === item.id ? "selected" : ""
-                      }`}
-                    >
-                      {item.id}
+        </header>
+        {/* TABLE */}
+        <div className="pl-table-container">
+          <table className="pl-table">
+            <thead>
+              <tr>
+                <th>
+                  <div className="pl-th-content">
+                    Article No.
+                    <span className="pl-th-arrow pl-th-arrow--blue">
+                      &#x25BC;
                     </span>
-                  )}
-                </td>
-                <td
-                  className="col-desktop col-tablet col-mobile"
-                  onClick={() => !editItemId && handleEdit(item.id)}
-                >
-                  {editItemId === item.id ? (
-                    <input
-                      type="text"
-                      value={editedValues.product_service || ""}
-                      onChange={(e) => handleChange(e, "product_service")}
-                      className="edit-input"
-                    />
-                  ) : (
-                    <span
-                      className={`pill-bio ${
-                        editItemId === item.id ? "selected" : ""
-                      }`}
-                    >
-                      {item.product_service}
+                  </div>
+                </th>
+                <th>
+                  <div className="pl-th-content">
+                    Product/Service
+                    <span className="pl-th-arrow pl-th-arrow--green">
+                      &#x25BC;
                     </span>
-                  )}
-                </td>
-                <td
-                  className="col-desktop col-tablet"
-                  onClick={() => !editItemId && handleEdit(item.id)}
-                >
-                  {editItemId === item.id ? (
-                    <input
-                      type="text"
-                      value={editedValues.in_price || ""}
-                      onChange={(e) => handleChange(e, "in_price")}
-                      className="edit-input"
-                    />
-                  ) : (
-                    <span className="pill-bio">{item.in_price}</span>
-                  )}
-                </td>
-                <td
-                  className="col-desktop col-tablet col-mobile"
-                  onClick={() => !editItemId && handleEdit(item.id)}
-                >
-                  {editItemId === item.id ? (
-                    <input
-                      type="text"
-                      value={editedValues.price || ""}
-                      onChange={(e) => handleChange(e, "price")}
-                      className="edit-input"
-                    />
-                  ) : (
-                    <span className="pill-bio">{item.price}</span>
-                  )}
-                </td>
-                <td
-                  className="col-desktop col-tablet"
-                  onClick={() => !editItemId && handleEdit(item.id)}
-                >
-                  {editItemId === item.id ? (
-                    <input
-                      type="text"
-                      value={editedValues.unit || ""}
-                      onChange={(e) => handleChange(e, "unit")}
-                      className="edit-input"
-                    />
-                  ) : (
-                    <span className="pill-bio">{item.unit || "-"}</span>
-                  )}
-                </td>
-                <td
-                  className="col-desktop"
-                  onClick={() => !editItemId && handleEdit(item.id)}
-                >
-                  {editItemId === item.id ? (
-                    <input
-                      type="text"
-                      value={editedValues.in_stock || ""}
-                      onChange={(e) => handleChange(e, "in_stock")}
-                      className="edit-input"
-                    />
-                  ) : (
-                    <span className="pill-bio">{item.in_stock || "-"}</span>
-                  )}
-                </td>
-                <td
-                  className="col-desktop"
-                  onClick={() => !editItemId && handleEdit(item.id)}
-                >
-                  {editItemId === item.id ? (
-                    <input
-                      type="text"
-                      value={editedValues.description || ""}
-                      onChange={(e) => handleChange(e, "description")}
-                      className="edit-input"
-                    />
-                  ) : (
-                    <span className="pill-bio">{item.description || "-"}</span>
-                  )}
-                </td>
-                <td>
-                  {editItemId === item.id ? (
-                    <>
-                      <span
-                        className="more-dots more-dots-pill"
-                        onClick={() => handleSave(item.id)}
-                      >
-                        <FiCheck className="more-dots-icon" size={20} />
-                      </span>
-                      <span
-                        className="more-dots more-dots-pill"
-                        onClick={handleCancel}
-                      >
-                        <FiX className="more-dots-icon" size={20} />
-                      </span>
-                    </>
-                  ) : (
-                    <span
-                      className="more-dots more-dots-pill"
-                      onClick={() => handleEdit(item.id)}
-                    >
-                      <FiMoreVertical className="more-dots-icon" size={20} />
-                    </span>
-                  )}
-                </td>
+                  </div>
+                </th>
+                <th>In Price</th>
+                <th>Price</th>
+                <th>Unit</th>
+                <th>In Stock</th>
+                <th>Description</th>
+                <th></th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {items.map((item) => (
+                <tr className="pl-table-row" key={item.id}>
+                  <td onClick={() => !editItemId && handleEdit(item.id)}>
+                    <div className="pl-cell-flex">
+                      <span className="pl-arrow-cell pl-arrow-cell--blue">
+                        &#x2192;
+                      </span>
+                      {editItemId === item.id ? (
+                        <input
+                          type="text"
+                          value={editedValues.id || ""}
+                          onChange={(e) => handleChange(e, "id")}
+                          className="pl-edit-input"
+                        />
+                      ) : (
+                        <span className="pl-pill">{item.id}</span>
+                      )}
+                    </div>
+                  </td>
+                  <td onClick={() => !editItemId && handleEdit(item.id)}>
+                    {editItemId === item.id ? (
+                      <input
+                        type="text"
+                        value={editedValues.product_service || ""}
+                        onChange={(e) => handleChange(e, "product_service")}
+                        className="pl-edit-input"
+                      />
+                    ) : (
+                      <span className="pl-pill">{item.product_service}</span>
+                    )}
+                  </td>
+                  <td onClick={() => !editItemId && handleEdit(item.id)}>
+                    {editItemId === item.id ? (
+                      <input
+                        type="text"
+                        value={editedValues.in_price || ""}
+                        onChange={(e) => handleChange(e, "in_price")}
+                        className="pl-edit-input"
+                      />
+                    ) : (
+                      <span className="pl-pill">{item.in_price}</span>
+                    )}
+                  </td>
+                  <td onClick={() => !editItemId && handleEdit(item.id)}>
+                    {editItemId === item.id ? (
+                      <input
+                        type="text"
+                        value={editedValues.price || ""}
+                        onChange={(e) => handleChange(e, "price")}
+                        className="pl-edit-input"
+                      />
+                    ) : (
+                      <span className="pl-pill">{item.price}</span>
+                    )}
+                  </td>
+                  <td onClick={() => !editItemId && handleEdit(item.id)}>
+                    {editItemId === item.id ? (
+                      <input
+                        type="text"
+                        value={editedValues.unit || ""}
+                        onChange={(e) => handleChange(e, "unit")}
+                        className="pl-edit-input"
+                      />
+                    ) : (
+                      <span className="pl-pill">{item.unit || "-"}</span>
+                    )}
+                  </td>
+                  <td onClick={() => !editItemId && handleEdit(item.id)}>
+                    {editItemId === item.id ? (
+                      <input
+                        type="text"
+                        value={editedValues.in_stock || ""}
+                        onChange={(e) => handleChange(e, "in_stock")}
+                        className="pl-edit-input"
+                      />
+                    ) : (
+                      <span className="pl-pill">{item.in_stock || "-"}</span>
+                    )}
+                  </td>
+                  <td onClick={() => !editItemId && handleEdit(item.id)}>
+                    {editItemId === item.id ? (
+                      <input
+                        type="text"
+                        value={editedValues.description || ""}
+                        onChange={(e) => handleChange(e, "description")}
+                        className="pl-edit-input"
+                      />
+                    ) : (
+                      <span className="pl-pill">{item.description || "-"}</span>
+                    )}
+                  </td>
+                  <td>
+                    {editItemId === item.id ? (
+                      <div className="pl-action-save-cancel">
+                        <span
+                          className="pl-action-icon"
+                          onClick={() => handleSave(item.id)}
+                        >
+                          <FiCheck size={20} />
+                        </span>
+                        <span className="pl-action-icon" onClick={handleCancel}>
+                          <FiX size={20} />
+                        </span>
+                      </div>
+                    ) : (
+                      <span
+                        className="pl-action-icon"
+                        onClick={() => handleEdit(item.id)}
+                      >
+                        <FiMoreVertical size={20} />
+                      </span>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </main>
   );
