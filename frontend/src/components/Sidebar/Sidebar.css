@@ -34,7 +34,8 @@
   padding: 12px 20px;
   display: flex;
   align-items: center;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 2px;
   color: #333;
   cursor: pointer;
 }

@@ -8,6 +8,7 @@ import {
   FiMoreVertical,
   FiCheck,
   FiX,
+  FiMoreHorizontal,
 } from "react-icons/fi";
 
 const Pricelist = ({ isSidebarOpen }) => {
@@ -253,7 +254,7 @@ const Pricelist = ({ isSidebarOpen }) => {
                         className="pl-action-icon"
                         onClick={() => handleEdit(item.id)}
                       >
-                        <FiMoreVertical size={20} />
+                        <FiMoreHorizontal size={20} />
                       </span>
                     )}
                   </td>
