@@ -12,12 +12,15 @@ import {
   FaCloud,
   FaSignOutAlt,
 } from "react-icons/fa";
+import { GoDotFill } from "react-icons/go";
 import "./Sidebar.css";
 
 const Sidebar = ({ isOpen, onToggle }) => {
   return (
     <aside className={`sidebar ${isOpen ? "open" : ""}`}>
-      <div className="sidebar-header">Menu</div>
+      <div class="sidebar-header-container">
+        <div class="sidebar-header">Menu</div>
+      </div>
       <ul className="sidebar-menu">
         <li onClick={onToggle}>
           <FaFileAlt className="icon" /> Invoices
@@ -31,7 +34,9 @@ const Sidebar = ({ isOpen, onToggle }) => {
         <li onClick={onToggle}>
           <FaBook className="icon" /> Invoice Journal
         </li>
+
         <li onClick={onToggle}>
+          <GoDotFill className="dot-green" color="#28a745" size={22} />
           <FaTag className="icon" style={{ color: "#28a745" }} /> Price List
         </li>
         <li onClick={onToggle}>

@@ -4,12 +4,14 @@ import "./Pricelist.css";
 import {
   FiSearch,
   FiPlus,
-  FiPrinter,
   FiMoreVertical,
   FiCheck,
   FiX,
   FiMoreHorizontal,
 } from "react-icons/fi";
+import { AiFillAppstore } from "react-icons/ai";
+import { IoMdAddCircle } from "react-icons/io";
+import { FaPrint } from "react-icons/fa6";
 import { GoArrowDown, GoArrowRight } from "react-icons/go";
 
 const Pricelist = ({ isSidebarOpen }) => {
@@ -103,15 +105,15 @@ const Pricelist = ({ isSidebarOpen }) => {
               className="pl-action-btn pl-action-btn--new"
               aria-label="Add new product"
             >
-              <FiPlus className="pl-action-btn-icon pl-action-btn-icon--green" />
+              <IoMdAddCircle className="pl-action-btn-icon pl-action-btn-icon--green" />
               <span className="pl-action-btn-text">New Product</span>
             </button>
             <button className="pl-action-btn" aria-label="Print pricelist">
-              <FiPrinter className="pl-action-btn-icon pl-action-btn-icon--blue" />
+              <FaPrint className="pl-action-btn-icon pl-action-btn-icon--blue" />
               <span className="pl-action-btn-text">Print List</span>
             </button>
             <button className="pl-action-btn" aria-label="Advanced mode">
-              <FiMoreVertical className="pl-action-btn-icon" />
+              <AiFillAppstore className="pl-action-btn-icon" />
               <span className="pl-action-btn-text">Advanced mode</span>
             </button>
           </div>
