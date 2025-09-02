@@ -10,6 +10,7 @@ import {
   FiX,
   FiMoreHorizontal,
 } from "react-icons/fi";
+import { GoArrowDown, GoArrowRight } from "react-icons/go";
 
 const Pricelist = ({ isSidebarOpen }) => {
   const [items, setItems] = useState([]);
@@ -124,7 +125,7 @@ const Pricelist = ({ isSidebarOpen }) => {
                   <div className="pl-th-content">
                     Article No.
                     <span className="pl-th-arrow pl-th-arrow--blue">
-                      &#x25BC;
+                      <GoArrowDown />
                     </span>
                   </div>
                 </th>
@@ -132,7 +133,7 @@ const Pricelist = ({ isSidebarOpen }) => {
                   <div className="pl-th-content">
                     Product/Service
                     <span className="pl-th-arrow pl-th-arrow--green">
-                      &#x25BC;
+                      <GoArrowDown />
                     </span>
                   </div>
                 </th>
@@ -150,7 +151,7 @@ const Pricelist = ({ isSidebarOpen }) => {
                   <td onClick={() => !editItemId && handleEdit(item.id)}>
                     <div className="pl-cell-flex">
                       <span className="pl-arrow-cell pl-arrow-cell--blue">
-                        &#x2192;
+                        <GoArrowRight />
                       </span>
                       {editItemId === item.id ? (
                         <input

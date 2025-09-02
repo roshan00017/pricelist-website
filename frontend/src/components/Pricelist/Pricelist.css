@@ -1,6 +1,6 @@
 .pl-main {
-  background: #f9fafb;
-  min-height: 100vh;
+  background: white;
+  min-height: 1600px;
   width: 100%;
   font-family: "Inter", "Segoe UI", Arial, sans-serif;
   transition: padding-left 0.3s;
@@ -22,6 +22,7 @@
   max-width: none;
   margin: 0;
   padding: 2rem 0;
+  background: white;
   box-sizing: border-box;
 }
 
@@ -30,6 +31,7 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 1.5rem;
+
   margin-bottom: 2rem;
   flex-wrap: wrap;
 }
@@ -37,10 +39,12 @@
 .pl-search-section {
   display: flex;
   flex-direction: column;
+  background: white;
   gap: 0.75rem;
 }
 .pl-search-group {
   position: relative;
+  background: white;
   width: 22rem;
   height: 3rem;
 }
@@ -95,7 +99,7 @@
   align-items: center;
   padding: 0.5rem 1.25rem;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 400;
   background: white;
   color: #374151;
   border: none;
@@ -126,7 +130,7 @@
 }
 
 .pl-table-container {
-  background: none;
+  background: white;
   border-radius: 0;
   box-shadow: none;
   overflow-x: auto;
@@ -136,7 +140,7 @@
 .pl-table {
   width: 100%;
   border-collapse: collapse;
-  background: transparent;
+  background: white;
   font-size: 1rem;
   margin: 0;
 }
@@ -147,11 +151,8 @@
   vertical-align: middle;
 }
 .pl-table th {
-  font-weight: 600;
-  color: #4b5563;
   background: white;
-  border-bottom: 1px solid #e5e7eb;
-  font-size: 1rem;
+  font-weight: 400;
 }
 .pl-th-content {
   display: flex;
@@ -159,7 +160,7 @@
   gap: 0.25rem;
 }
 .pl-th-arrow {
-  font-size: 1rem;
+  font-size: 1.4rem;
   margin-left: 0.25rem;
   user-select: none;
 }
@@ -207,7 +208,7 @@
   font-size: 25px;
 }
 .pl-edit-input {
-  background: #f3f4f6;
+  background: white;
   border: 1px solid #d1d5db;
   border-radius: 2em;
   padding: 0.25rem 0.75rem;
@@ -245,7 +246,7 @@
 }
 @media (min-width: 1025px) {
   .pl-main {
-    padding-left: 250px !important;
+    padding-left: 300px !important;
   }
 }
 
