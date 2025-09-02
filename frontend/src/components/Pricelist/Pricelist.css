@@ -348,7 +348,7 @@
 @media (min-width: 601px) and (max-width: 1024px) {
   .pl-col-instock,
   .pl-col-unit {
-    display: block !important;
+    display: table-cell !important;
   }
   .pl-header {
     flex-direction: row;
