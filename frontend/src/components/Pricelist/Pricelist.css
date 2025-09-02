@@ -159,6 +159,12 @@
   align-items: center;
   gap: 0.25rem;
 }
+.pl-th-content.first {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding-left: 35px;
+}
 .pl-th-arrow {
   font-size: 1.4rem;
   margin-left: 0.25rem;

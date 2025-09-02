@@ -122,7 +122,7 @@ const Pricelist = ({ isSidebarOpen }) => {
             <thead>
               <tr>
                 <th>
-                  <div className="pl-th-content">
+                  <div className="pl-th-content first">
                     Article No.
                     <span className="pl-th-arrow pl-th-arrow--blue">
                       <GoArrowDown />
