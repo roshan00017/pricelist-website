@@ -3,13 +3,16 @@
   width: 100%;
   font-family: "Inter", "Segoe UI", Arial, sans-serif;
   transition: padding-left 0.3s;
+  box-sizing: border-box; /* ensure content doesn’t overflow */
+  overflow-x: hidden; /* prevent horizontal scroll */
 }
+
 
 .pl-main--sidebar {
   padding-left: 250px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1270px) {
   .pl-main--sidebar {
     padding-left: 0;
   }
@@ -288,13 +291,13 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1270px) {
   .pl-main--sidebar {
     padding-left: 0;
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1270px) {
   .pl-container {
     padding: 1rem 0.5rem;
   }
@@ -313,7 +316,7 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1270px) {
   .pl-col-articleno,
   .pl-col-inprice,
   .pl-col-unit,
@@ -354,7 +357,7 @@
   }
 }
 
-@media (min-width: 601px) and (max-width: 1024px) {
+@media (min-width: 601px) and (max-width: 1270px) {
   .pl-col-instock,
   .pl-col-articleno,
   .pl-col-unit {
